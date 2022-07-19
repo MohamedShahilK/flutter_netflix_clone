@@ -7,7 +7,9 @@ import 'package:netflix_clone/domain/core/failures/main_failures.dart';
 import 'package:netflix_clone/domain/downloads/downloads_repo.dart';
 import 'package:netflix_clone/domain/downloads/models/downloads.dart';
 
-// @injectable()
+// @Injectable(as: DownloadsRepo)
+//or
+// @Singleton(as: DownloadsRepo)
 //or
 @LazySingleton(as: DownloadsRepo)
 class DownloadsImpl implements DownloadsRepo {
