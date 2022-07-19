@@ -22,7 +22,7 @@ class ImageCard extends StatelessWidget {
       angle: angle * pi / 180,
       child: Container(
         margin: margin,
-        height: size.width * .65,
+        height: size.width * .75,
         width: size.width * .45,
         decoration: BoxDecoration(
           // color: Colors.black,
