@@ -1,10 +1,4 @@
-import 'dart:developer';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix_clone/core/api/api_end_point.dart';
-import 'package:netflix_clone/core/api/baseurl.dart';
 import 'package:netflix_clone/presentation/MainPage/Widgets/app_bar.dart';
 import 'package:netflix_clone/presentation/Pages/Downloads/Widgets/section1.dart';
 import 'package:netflix_clone/presentation/Pages/Downloads/Widgets/section2.dart';
