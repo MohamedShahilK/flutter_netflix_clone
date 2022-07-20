@@ -1,14 +1,14 @@
-google_fonts
-video_player
 flutter_bloc
 freezed_annotation
 json_annotation
 json_serializable
-dio
-dartz (for Either and Option)
 get_it
 injectable
 
+dio
+dartz (for Either and Option)
+google_fonts
+video_player
 
 dev dep
 ---------

@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netflix_clone/domain/core/failures/main_failures.dart';
 import 'package:netflix_clone/domain/downloads/downloads_repo.dart';
-import 'package:netflix_clone/domain/downloads/models/downloads.dart';
+import 'package:netflix_clone/domain/downloads/model/downloads.dart';
 
 part 'downloads_event.dart';
 part 'downloads_state.dart';

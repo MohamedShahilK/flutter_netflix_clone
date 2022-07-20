@@ -38,16 +38,13 @@ class ScreenDownloadPage extends StatelessWidget {
   }
 }
 
-
-
-      // body: ListView(
-      //   children: [
-      //     const Section1(),
-      //     const SizedBox(height: 20),
-      //     Section2(size: size, imageList: imageList),
-      //     const SizedBox(height: 45),
-      //     const Section3(),
-      //     const SizedBox(height: 10)
-      //   ],
-      // ),
-
+// body: ListView(
+//   children: [
+//     const Section1(),
+//     const SizedBox(height: 20),
+//     Section2(size: size, imageList: imageList),
+//     const SizedBox(height: 45),
+//     const Section3(),
+//     const SizedBox(height: 10)
+//   ],
+// ),

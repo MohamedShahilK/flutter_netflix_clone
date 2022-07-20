@@ -5,12 +5,11 @@ import 'package:injectable/injectable.dart';
 import 'package:netflix_clone/core/api/api_end_point.dart';
 import 'package:netflix_clone/domain/core/failures/main_failures.dart';
 import 'package:netflix_clone/domain/downloads/downloads_repo.dart';
-import 'package:netflix_clone/domain/downloads/models/downloads.dart';
+import 'package:netflix_clone/domain/downloads/model/downloads.dart';
 
 // @Injectable(as: DownloadsRepo)
 //or
 // @Singleton(as: DownloadsRepo)
-//or
 @LazySingleton(as: DownloadsRepo)
 class DownloadsImpl implements DownloadsRepo {
   @override
