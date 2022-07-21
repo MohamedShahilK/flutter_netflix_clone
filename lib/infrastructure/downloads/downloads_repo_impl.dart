@@ -1,4 +1,6 @@
 // import 'dart:developer';
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -16,7 +18,7 @@ class DownloadsImpl implements DownloadsRepo {
   Future<Either<MainFailures, List<Downloads>>> getDownloadPageApi() async {
     try {
       final _response = await Dio(BaseOptions()).get(ApiKeyEndPoint.downloads);
-      print(_response.data['results']);
+      log(_response.data['results'].toString());
       if (_response.statusCode == 200 || _response.statusCode == 201) {
         final _result = (_response.data['results'] as List)
             .map(
@@ -34,7 +36,8 @@ class DownloadsImpl implements DownloadsRepo {
       } else {
         return const Left(MainFailures.serverFailures());
       }
-    } catch (_) {
+    }on DioError catch (e) {
+      log(e.toString());
       return const Left(MainFailures.clientFailures());
     }
     // on DioError catch (e) {

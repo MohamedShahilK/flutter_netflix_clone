@@ -9,6 +9,7 @@ dio
 dartz (for Either and Option)
 google_fonts
 video_player
+share_plus
 
 dev dep
 ---------

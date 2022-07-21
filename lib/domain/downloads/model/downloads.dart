@@ -5,6 +5,7 @@ part 'downloads.g.dart';
 @freezed
 class Downloads with _$Downloads {
   const factory Downloads({
+    @JsonKey(name: 'original_title') required String? title,
     @JsonKey(name: 'poster_path') required String posterPath,
   }) = _Downloads;
 
