@@ -11,10 +11,9 @@ class SearchState with _$SearchState {
   }) = _SearchState;
 
   factory SearchState.initial() => const SearchState(
-        isLoading: false,
-        isError: false,
-        searchIdleResult: [],
-        searchRespResult: [],
-        isSearchIdle: true
-      );
+      isLoading: false,
+      isError: false,
+      searchIdleResult: [],
+      searchRespResult: [],
+      isSearchIdle: true);
 }

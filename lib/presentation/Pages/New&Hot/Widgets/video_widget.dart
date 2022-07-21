@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class VideoWidget extends StatelessWidget {
+  final String imageUrl;
   const VideoWidget({
     Key? key,
+    required this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -12,14 +14,30 @@ class VideoWidget extends StatelessWidget {
       children: [
         Container(
           // color: Colors.green,
-          height: 180,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/lRbDyjI7HEaXxflFQbYpqHRGFBJ.jpg',
-              ),
-            ),
+          height: 260,
+          width: double.infinity,
+          // decoration: BoxDecoration(
+          //   image: DecorationImage(
+          //     fit: BoxFit.cover,
+          //     image: NetworkImage(
+          //       imageUrl,
+          //     ),
+          //   ),
+          // ),
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.fill,
+            errorBuilder: (context, error, stackTrace) {
+              return const Center(child: Icon(Icons.wifi_off));
+            },
+            loadingBuilder: (BuildContext _, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
           ),
         ),
         Positioned(

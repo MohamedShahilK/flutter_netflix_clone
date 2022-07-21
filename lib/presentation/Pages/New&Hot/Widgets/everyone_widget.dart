@@ -3,8 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/presentation/Pages/New&Hot/Widgets/video_widget.dart';
 
 class EveryonesWatchingWidget extends StatelessWidget {
+  final String movieName, posterPath, description;
   const EveryonesWatchingWidget({
     Key? key,
+    required this.movieName,
+    required this.posterPath,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -15,18 +19,18 @@ class EveryonesWatchingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Death on the Nile (2022)',
+            movieName,
             style: GoogleFonts.dancingScript(
               fontSize: 25,
               letterSpacing: 1,
             ),
           ),
-          const Text(
-            'Belgian sleuth Hercule Poirot boards a glamorous river steamer with enough champagne to fill the Nile. But his Egyptian vacation turns into a thrilling search for a murderer when a picture-perfect couple’s idyllic honeymoon is tragically cut short.',
-            style: TextStyle(fontSize: 15, color: Colors.grey),
+          Text(
+            description,
+            style: const TextStyle(fontSize: 15, color: Colors.grey),
           ),
           const SizedBox(height: 15),
-          const VideoWidget(),
+          VideoWidget(imageUrl: posterPath),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

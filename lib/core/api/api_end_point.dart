@@ -7,4 +7,7 @@ class ApiKeyEndPoint {
   static String searchIdle = "$mainBaseUrl/discover/movie?api_key=$apiKey";
   //query will provided along with event
   static String searchResult = "$mainBaseUrl/search/movie?api_key=$apiKey";
+  static String comingsoon = "$mainBaseUrl/movie/upcoming?api_key=$apiKey";
+  static String everyones =
+      "$mainBaseUrl/discover/tv?api_key=$apiKey&with_networks=213#";
 }

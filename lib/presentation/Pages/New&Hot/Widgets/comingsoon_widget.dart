@@ -3,8 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/presentation/Pages/New&Hot/Widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
+  final String movieName, posterPath, description, month, date, day;
+
   const ComingSoonWidget({
     Key? key,
+    required this.movieName,
+    required this.posterPath,
+    required this.description,
+    required this.month,
+    required this.date,
+    required this.day,
   }) : super(key: key);
 
   @override
@@ -16,7 +24,7 @@ class ComingSoonWidget extends StatelessWidget {
           //Whole Container
           Container(
             color: Colors.transparent,
-            height: 400,
+            height: 480,
             child: Row(
               children: [
                 //Left Side
@@ -24,21 +32,21 @@ class ComingSoonWidget extends StatelessWidget {
                   flex: 1,
                   child: Container(
                     color: Colors.transparent,
-                    height: 400,
+                    height: 480,
                     child: Column(
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
-                            children: const [
+                            children: [
                               Text(
-                                'FEB',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.grey),
+                                month,
+                                style: const TextStyle(
+                                    fontSize: 18, color: Colors.grey),
                               ),
                               Text(
-                                '11',
-                                style: TextStyle(
+                                date,
+                                style: const TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 3),
@@ -53,7 +61,7 @@ class ComingSoonWidget extends StatelessWidget {
 
                 //Right Side
                 Flexible(
-                  flex: 7,
+                  flex: 6,
                   child: Container(
                     color: Colors.transparent,
                     child: Padding(
@@ -62,7 +70,7 @@ class ComingSoonWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //VideoWidget
-                          const VideoWidget(),
+                          VideoWidget(imageUrl: posterPath),
                           const SizedBox(height: 10),
 
                           //Title and 2 Buttons
@@ -72,7 +80,7 @@ class ComingSoonWidget extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'Death on the Nile (2022)',
+                                  movieName,
                                   style: GoogleFonts.dancingScript(
                                     fontSize: 25,
                                     letterSpacing: 1,
@@ -110,18 +118,20 @@ class ComingSoonWidget extends StatelessWidget {
                               )
                             ],
                           ),
-                          const Text(
-                            'Coming on Friday',
-                            style: TextStyle(fontSize: 18),
+                          Text(
+                            'Coming on $day',
+                            style: const TextStyle(fontSize: 18),
                           ),
 
                           //Description
-                          const SizedBox(
+                          SizedBox(
                             width: 250,
                             child: Text(
-                              'Belgian sleuth Hercule Poirot boards a glamorous river steamer with enough champagne to fill the Nile. But his Egyptian vacation turns into a thrilling search for a murderer when a picture-perfect couple’s idyllic honeymoon is tragically cut short.',
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.grey),
+                              description,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 5,
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.grey),
                             ),
                           )
                         ],

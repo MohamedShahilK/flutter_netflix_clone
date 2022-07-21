@@ -36,7 +36,7 @@ class DownloadsImpl implements DownloadsRepo {
       } else {
         return const Left(MainFailures.serverFailures());
       }
-    }on DioError catch (e) {
+    } on DioError catch (e) {
       log(e.toString());
       return const Left(MainFailures.clientFailures());
     }

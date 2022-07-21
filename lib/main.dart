@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/application/downloads/downloads_bloc.dart';
 import 'package:netflix_clone/application/fastlaugh/fastlaugh_bloc.dart';
+import 'package:netflix_clone/application/hotandnew/hotandnew_bloc.dart';
 import 'package:netflix_clone/application/search/search_bloc.dart';
 import 'package:netflix_clone/domain/core/dependency%20injection/injection.dart';
 import 'package:netflix_clone/presentation/MainPage/main_page.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<DownloadsBloc>()),
         BlocProvider(create: (context) => getIt<SearchBloc>()),
         BlocProvider(create: (context) => getIt<FastlaughBloc>()),
+        BlocProvider(create: (context) => getIt<HotandnewBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

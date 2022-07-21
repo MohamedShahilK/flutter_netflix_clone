@@ -177,8 +177,7 @@ abstract class _getProfileImage implements FastlaughEvent {
 
 /// @nodoc
 mixin _$FastlaughState {
-  List<Downloads> get videoProfileImages =>
-      throw _privateConstructorUsedError; // required List<int> videoIds,//Due to "Cannot add to an unmodifiable list" error
+  List<Downloads> get videoProfileImages => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
@@ -289,7 +288,6 @@ class _$_FastlaughState
     return EqualUnmodifiableListView(_videoProfileImages);
   }
 
-// required List<int> videoIds,//Due to "Cannot add to an unmodifiable list" error
   @override
   final bool isLoading;
   @override
@@ -342,7 +340,7 @@ abstract class _FastlaughState implements FastlaughState {
 
   @override
   List<Downloads> get videoProfileImages;
-  @override // required List<int> videoIds,//Due to "Cannot add to an unmodifiable list" error
+  @override
   bool get isLoading;
   @override
   bool get isError;
