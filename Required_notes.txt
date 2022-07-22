@@ -11,6 +11,7 @@ google_fonts
 video_player
 share_plus
 intl
+card_swiper
 
 dev dep
 ---------

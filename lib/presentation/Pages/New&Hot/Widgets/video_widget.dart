@@ -12,7 +12,7 @@ class VideoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           // color: Colors.green,
           height: 260,
           width: double.infinity,

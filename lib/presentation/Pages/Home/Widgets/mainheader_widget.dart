@@ -1,5 +1,12 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/presentation/Pages/Home/home_page.dart';
+
+final imageUrls = [
+  'https://image.tmdb.org/t/p/w600_and_h900_bestv2/8jJuNuEgDPjxHEeNsehRZtceAlw.jpg',
+  "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rJHC1RUORuUhtfNb4Npclx0xnOf.jpg",
+  'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg',
+];
 
 class MainHeaderWidget extends StatelessWidget {
   const MainHeaderWidget({
@@ -13,17 +20,48 @@ class MainHeaderWidget extends StatelessWidget {
       child: Stack(
         children: [
           //Image
+
           Container(
             height: 550,
             decoration: BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.circular(5),
-              image: const DecorationImage(
-                image: NetworkImage(imageUrl),
-                fit: BoxFit.fill,
-              ),
+              // image: const DecorationImage(
+              //   image: NetworkImage(imageUrl),
+              //   fit: BoxFit.fill,
+              // ),
+            ),
+            child: Swiper(
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return Image.network(
+                  // imageUrl,
+                  imageUrls[index],
+                  fit: BoxFit.fill,
+                );
+              },
+              autoplay: true,
+              pagination: const SwiperPagination(
+                  margin: EdgeInsets.only(bottom: 55),
+                  builder: SwiperPagination(
+                    builder: DotSwiperPaginationBuilder(
+                        color: Colors.white, activeColor: Colors.grey),
+                  )),
+              control: const SwiperControl(),
             ),
           ),
+
+          // Container(
+          //   height: 550,
+          //   decoration: BoxDecoration(
+          //     color: Colors.blue,
+          //     borderRadius: BorderRadius.circular(5),
+          //     image: const DecorationImage(
+          //       image: NetworkImage(imageUrl),
+          //       fit: BoxFit.fill,
+          //     ),
+          //   ),
+          // ),
 
           //All buttons
           Positioned(
