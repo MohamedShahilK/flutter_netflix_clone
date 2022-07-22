@@ -23,7 +23,7 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
 
         final Either<MainFailures, List<Downloads>> _downloadsApiResult =
             await _downloadRepo.getDownloadPageApi();
-        print(_downloadsApiResult);
+        // print(_downloadsApiResult);
         final _state = _downloadsApiResult.fold(
           (failure) => state.copyWith(
             isLoading: false,

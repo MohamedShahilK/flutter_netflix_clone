@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/core/api/baseurl.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -18,7 +19,7 @@ class MovieCard extends StatelessWidget {
         // color: Colors.red,
         borderRadius: BorderRadius.circular(5),
         image: DecorationImage(
-          image: NetworkImage(imageUrl),
+          image: NetworkImage('$imageBaseUrlw500$imageUrl'),
           fit: BoxFit.cover,
         ),
       ),

@@ -30,13 +30,14 @@ class EveryonesWatchingList extends StatelessWidget {
             return const Center(
               child: Text('Error While Getting Data'),
             );
-          } else if (state.comingsoonResp.isEmpty) {
+          } else if (state.everyonesResp.isEmpty) {
             return const Center(
               child: Text('Data is Empty'),
             );
           } else {
             return ListView.builder(
               itemBuilder: (context, index) {
+                // final movieData = state.everyonesResp[index];
                 final movieData = state.everyonesResp[index];
                 return EveryonesWatchingWidget(
                   movieName: movieData.originalName ?? 'No Title',

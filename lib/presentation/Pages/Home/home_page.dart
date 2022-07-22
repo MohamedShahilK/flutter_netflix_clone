@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_clone/application/home/home_bloc.dart';
+import 'package:netflix_clone/presentation/Pages/Home/Widgets/mainheader_widget.dart';
 import 'package:netflix_clone/presentation/Pages/Home/Widgets/moviecard_row.dart';
 import 'package:netflix_clone/presentation/Pages/Home/Widgets/special_moviecard_row.dart';
 import 'package:netflix_clone/presentation/Pages/Home/Widgets/topbar_widget.dart';
@@ -13,12 +16,16 @@ class ScreenHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HomeBloc>().add(const HomeEvent.all());
+    });
     final ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
     return Scaffold(
       body: SafeArea(
         child: ValueListenableBuilder(
           valueListenable: scrollNotifier,
           builder: (BuildContext ctx, bool newValue, _) {
+            //scrolling controller
             return NotificationListener<UserScrollNotification>(
               onNotification: (notification) {
                 final ScrollDirection direction = notification.direction;
@@ -32,84 +39,37 @@ class ScreenHomePage extends StatelessWidget {
               },
               child: Stack(
                 children: [
-                  ListView(
-                    shrinkWrap: true,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
-                        child: Stack(
-                          children: [
-                            //Image
-                            Container(
-                              height: 550,
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(5),
-                                image: const DecorationImage(
-                                  image: NetworkImage(imageUrl),
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-
-                            //All buttons
-                            Positioned(
-                              bottom: 15,
-                              left: 0,
-                              right: 0,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  //MyList Button
-                                  const CustomButton(
-                                      title: 'My List', icon: Icons.add),
-
-                                  //play button
-                                  TextButton.icon(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      Icons.play_arrow,
-                                      color: Colors.black,
-                                      size: 35,
-                                    ),
-                                    label: const Text(
-                                      'Play',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 1,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.white),
-                                      padding: MaterialStateProperty.all(
-                                        const EdgeInsets.symmetric(
-                                            horizontal: 12, vertical: 1),
-                                      ),
-                                    ),
-                                  ),
-
-                                  //Info button
-                                  const CustomButton(
-                                      title: 'Info', icon: Icons.info_outline)
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const MovieCardRow(title: 'Realeased in the Past Year'),
-                      const MovieCardRow(title: 'Trending Now'),
-                      const SpecialMovieCardRow(
-                          title: 'Top 10 TV Shows in India Today'),
-                      const MovieCardRow(title: 'Tense Dramas'),
-                      const MovieCardRow(title: 'South Indian Cinema'),
-                      const SizedBox(height: 20)
-                    ],
+                  BlocBuilder<HomeBloc, HomeState>(
+                    builder: (context, state) {
+                      final imageUrls = state.releasedPastYear.map((e) {
+                        return e.posterPath;
+                      }).toList();
+                      return ListView(
+                        shrinkWrap: true,
+                        children: [
+                          const MainHeaderWidget(),
+                          MovieCardRow(
+                            title: 'Realeased in the Past Year',
+                            imageUrls: imageUrls,
+                          ),
+                          MovieCardRow(
+                            title: 'Trending Now',
+                            imageUrls: imageUrls,
+                          ),
+                          const SpecialMovieCardRow(
+                              title: 'Top 10 TV Shows in India Today'),
+                          MovieCardRow(
+                            title: 'Tense Dramas',
+                            imageUrls: imageUrls,
+                          ),
+                          MovieCardRow(
+                            title: 'South Indian Cinema',
+                            imageUrls: imageUrls,
+                          ),
+                          const SizedBox(height: 20)
+                        ],
+                      );
+                    },
                   ),
 
                   //Top Bar

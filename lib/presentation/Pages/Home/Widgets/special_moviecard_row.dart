@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/presentation/Pages/Home/Widgets/moviecard.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_clone/application/home/home_bloc.dart';
+import 'package:netflix_clone/core/api/baseurl.dart';
 
-const imageUrl =
-    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8ZbybiGYe8XM4WGmGlhF0ec5R7u.jpg";
+// const imageUrl =
+//     "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8ZbybiGYe8XM4WGmGlhF0ec5R7u.jpg";
 
 class SpecialMovieCardRow extends StatelessWidget {
   const SpecialMovieCardRow({
@@ -14,54 +16,70 @@ class SpecialMovieCardRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(
-                  10,
-                  (index) => Stack(
-                    children: [
-                      Row(
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HomeBloc>().add(const HomeEvent.top10tvApi());
+    });
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        final imageUrls = state.releasedPastYear
+            .map((e) {
+              return e.posterPath;
+            })
+            .toList()
+            .sublist(10, 20);
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style:
+                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: List.generate(
+                      10,
+                      (index) => Stack(
                         children: [
-                          const SizedBox(
-                            width: 50,
-                            height: 200,
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(right: 10),
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              // color: Colors.red,
-                              borderRadius: BorderRadius.circular(5),
-                              image: const DecorationImage(
-                                image: NetworkImage(imageUrl),
-                                fit: BoxFit.cover,
+                          Row(
+                            children: [
+                              const SizedBox(
+                                width: 50,
+                                height: 200,
                               ),
-                            ),
+                              Container(
+                                margin: const EdgeInsets.only(right: 10),
+                                height: 200,
+                                width: 160,
+                                decoration: BoxDecoration(
+                                  // color: Colors.red,
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      '$imageBaseUrlw500${imageUrls[index]}',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
+                          projectingNumberText(index),
                         ],
                       ),
-                      projectingNumberText(index),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-          )
-        ],
-      ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 
