@@ -12,6 +12,7 @@ video_player
 share_plus
 intl
 card_swiper
+youtube_player_flutter
 
 dev dep
 ---------

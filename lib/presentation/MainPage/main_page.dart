@@ -24,7 +24,7 @@ class ScreenMainPage extends StatelessWidget {
         // valueListenable: BottomNavigationWidget.bottomNavIndexNotifier,
         valueListenable: bottomNavIndexNotifier,
         builder: (BuildContext context, int newIndex, _) {
-          return pages[newIndex];
+          return pages[1];
         },
       ),
       bottomNavigationBar: const BottomNavigationWidget(),

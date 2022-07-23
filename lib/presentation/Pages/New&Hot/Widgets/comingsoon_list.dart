@@ -42,6 +42,9 @@ class ComingSoonLIst extends StatelessWidget {
             return ListView.builder(
               itemBuilder: (context, index) {
                 final movieData = state.comingsoonResp[index];
+                context
+                    .read<HotandnewBloc>()
+                    .add(const HotandnewEvent.getComingSoonApi());
                 // print(movieData.releaseDate);
                 String month = '';
                 String date = '';

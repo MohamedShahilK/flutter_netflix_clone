@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoWidget extends StatelessWidget {
   final String imageUrl;
@@ -24,21 +25,35 @@ class VideoWidget extends StatelessWidget {
           //     ),
           //   ),
           // ),
-          child: Image.network(
-            imageUrl,
-            fit: BoxFit.fill,
-            errorBuilder: (context, error, stackTrace) {
-              return const Center(child: Icon(Icons.wifi_off));
-            },
-            loadingBuilder: (BuildContext _, Widget child,
-                ImageChunkEvent? loadingProgress) {
-              if (loadingProgress == null) {
-                return child;
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            },
+
+          child: YoutubePlayer(
+            controller: YoutubePlayerController(
+              initialVideoId: 'KKc5ttd88qc', //Add videoID.
+              flags: const YoutubePlayerFlags(
+                hideControls: false,
+                controlsVisibleAtStart: false,
+                autoPlay: false,
+                mute: false,
+              ),
+            ),
+            showVideoProgressIndicator: false,
           ),
+
+          // child: Image.network(
+          //   imageUrl,
+          //   fit: BoxFit.fill,
+          //   errorBuilder: (context, error, stackTrace) {
+          //     return const Center(child: Icon(Icons.wifi_off));
+          //   },
+          //   loadingBuilder: (BuildContext _, Widget child,
+          //       ImageChunkEvent? loadingProgress) {
+          //     if (loadingProgress == null) {
+          //       return child;
+          //     } else {
+          //       return const Center(child: CircularProgressIndicator());
+          //     }
+          //   },
+          // ),
         ),
         Positioned(
           bottom: 10,

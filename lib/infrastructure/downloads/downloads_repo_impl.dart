@@ -18,7 +18,7 @@ class DownloadsImpl implements DownloadsRepo {
   Future<Either<MainFailures, List<Downloads>>> getDownloadPageApi() async {
     try {
       final _response = await Dio(BaseOptions()).get(ApiKeyEndPoint.downloads);
-      log(_response.data['results'].toString());
+      // log(_response.data['results'].toString());
       if (_response.statusCode == 200 || _response.statusCode == 201) {
         final _result = (_response.data['results'] as List)
             .map(
