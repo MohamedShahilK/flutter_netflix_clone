@@ -24,7 +24,7 @@ class MainHeaderWidget extends StatelessWidget {
           Container(
             height: 550,
             decoration: BoxDecoration(
-              color: Colors.blue,
+              // color: Colors.blue,
               borderRadius: BorderRadius.circular(5),
               // image: const DecorationImage(
               //   image: NetworkImage(imageUrl),
@@ -38,6 +38,13 @@ class MainHeaderWidget extends StatelessWidget {
                   // imageUrl,
                   imageUrls[index],
                   fit: BoxFit.fill,
+                  loadingBuilder: (BuildContext ctx, Widget child,
+                      ImageChunkEvent? progress) {
+                    if (progress == null) {
+                      return child;
+                    }
+                    return const Center(child: CircularProgressIndicator());
+                  },
                 );
               },
               autoplay: true,
