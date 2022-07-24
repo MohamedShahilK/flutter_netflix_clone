@@ -35,18 +35,37 @@ class EveryonesWatchingList extends StatelessWidget {
               child: Text('Data is Empty'),
             );
           } else {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                // final movieData = state.everyonesResp[index];
-                final movieData = state.everyonesResp[index];
-                return EveryonesWatchingWidget(
-                  movieName: movieData.originalName ?? 'No Title',
-                  posterPath: '$imageBaseUrlw500${movieData.posterPath}',
-                  description: movieData.overview ?? 'No Description',
-                );
-              },
-              itemCount: 10,
+            return SingleChildScrollView(
+              child: Column(
+                children: List.generate(
+                  state.everyonesResp.length,
+                  (index) {
+                    final movieData = state.everyonesResp[index];
+                    // final movieData = state.everyonesResp[index];
+                    return EveryonesWatchingWidget(
+                      movieData: movieData,
+                      movieName: movieData.originalName ?? 'No Title',
+                      posterPath: '$imageBaseUrlw500${movieData.posterPath}',
+                      description: movieData.overview ?? 'No Description',
+                    );
+                  },
+                ),
+              ),
             );
+
+            // ListView.builder(
+            //   itemBuilder: (context, index) {
+            //     // final movieData = state.everyonesResp[index];
+            //     final movieData = state.everyonesResp[index];
+            //     return EveryonesWatchingWidget(
+            //       movieData: movieData,
+            //       movieName: movieData.originalName ?? 'No Title',
+            //       posterPath: '$imageBaseUrlw500${movieData.posterPath}',
+            //       description: movieData.overview ?? 'No Description',
+            //     );
+            //   },
+            //   itemCount: 10,
+            // );
           }
         },
       ),

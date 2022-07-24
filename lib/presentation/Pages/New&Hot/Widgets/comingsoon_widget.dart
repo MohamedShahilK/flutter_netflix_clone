@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix_clone/domain/new_and_hot/model/comingsoon/comingsoon.dart';
 import 'package:netflix_clone/presentation/Pages/New&Hot/Widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
   final String movieName, posterPath, description, month, date, day;
-
+  final ComingSoonResultData movieData;
   const ComingSoonWidget({
     Key? key,
     required this.movieName,
@@ -13,6 +14,7 @@ class ComingSoonWidget extends StatelessWidget {
     required this.month,
     required this.date,
     required this.day,
+    required this.movieData,
   }) : super(key: key);
 
   @override
@@ -70,7 +72,10 @@ class ComingSoonWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //VideoWidget
-                          VideoWidget(imageUrl: posterPath),
+                          VideoWidget(
+                            imageUrl: posterPath,
+                            movieID: movieData.id.toString(),
+                          ),
                           const SizedBox(height: 10),
 
                           //Title and 2 Buttons

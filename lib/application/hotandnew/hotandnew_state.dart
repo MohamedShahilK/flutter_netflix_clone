@@ -7,6 +7,7 @@ class HotAndNewState with _$HotAndNewState {
     required bool isError,
     required List<ComingSoonResultData> comingsoonResp,
     required List<EveryonesResultData> everyonesResp,
+    required List<ComingSoonVideoData> comingsoonvideokey,
   }) = _HotAndNewState;
 
   factory HotAndNewState.initial() => const HotAndNewState(
@@ -14,5 +15,6 @@ class HotAndNewState with _$HotAndNewState {
         isError: false,
         comingsoonResp: [],
         everyonesResp: [],
+        comingsoonvideokey: [],
       );
 }

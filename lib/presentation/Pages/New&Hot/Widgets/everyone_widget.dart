@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix_clone/domain/new_and_hot/model/comingsoon/comingsoon.dart';
+import 'package:netflix_clone/domain/new_and_hot/model/everyones/everyones.dart';
+import 'package:netflix_clone/presentation/Pages/New&Hot/Widgets/comingsoon_list.dart';
 import 'package:netflix_clone/presentation/Pages/New&Hot/Widgets/video_widget.dart';
 
 class EveryonesWatchingWidget extends StatelessWidget {
   final String movieName, posterPath, description;
+  final EveryonesResultData movieData;
   const EveryonesWatchingWidget({
     Key? key,
     required this.movieName,
     required this.posterPath,
     required this.description,
+    required this.movieData,
   }) : super(key: key);
 
   @override
@@ -30,7 +35,10 @@ class EveryonesWatchingWidget extends StatelessWidget {
             style: const TextStyle(fontSize: 15, color: Colors.grey),
           ),
           const SizedBox(height: 15),
-          VideoWidget(imageUrl: posterPath),
+          VideoWidget(
+            imageUrl: posterPath,
+            movieID: movieData.id.toString(),
+          ),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

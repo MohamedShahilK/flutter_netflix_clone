@@ -22,8 +22,9 @@ Map<String, dynamic> _$EveryonesRespToJson(EveryonesResp instance) =>
 
 EveryonesResultData _$EveryonesResultDataFromJson(Map<String, dynamic> json) =>
     EveryonesResultData(
+      id: json['id'] as int?,
       backdropPath: json['backdrop_path'] as String?,
-      originalName: json['original_name'] as String?,
+      originalName: json['original_title'] as String?,
       overview: json['overview'] as String?,
       posterPath: json['poster_path'] as String?,
     );
@@ -31,8 +32,9 @@ EveryonesResultData _$EveryonesResultDataFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$EveryonesResultDataToJson(
         EveryonesResultData instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'backdrop_path': instance.backdropPath,
-      'original_name': instance.originalName,
+      'original_title': instance.originalName,
       'overview': instance.overview,
       'poster_path': instance.posterPath,
     };

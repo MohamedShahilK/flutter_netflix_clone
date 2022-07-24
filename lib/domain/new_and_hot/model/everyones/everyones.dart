@@ -17,9 +17,11 @@ class EveryonesResp {
 
 @JsonSerializable()
 class EveryonesResultData {
+  @JsonKey(name: 'id')
+  int? id;
   @JsonKey(name: 'backdrop_path')
   String? backdropPath;
-  @JsonKey(name: 'original_name')
+  @JsonKey(name: 'original_title')
   String? originalName;
   @JsonKey(name: 'overview')
   String? overview;
@@ -27,6 +29,7 @@ class EveryonesResultData {
   String? posterPath;
 
   EveryonesResultData({
+    this.id,
     this.backdropPath,
     this.originalName,
     this.overview,

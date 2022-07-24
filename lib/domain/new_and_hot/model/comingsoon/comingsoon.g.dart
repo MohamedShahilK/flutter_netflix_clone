@@ -23,6 +23,7 @@ Map<String, dynamic> _$ComingsoonRespToJson(ComingsoonResp instance) =>
 ComingSoonResultData _$ComingSoonResultDataFromJson(
         Map<String, dynamic> json) =>
     ComingSoonResultData(
+      id: json['id'] as int?,
       backdropPath: json['backdrop_path'] as String?,
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
@@ -33,6 +34,7 @@ ComingSoonResultData _$ComingSoonResultDataFromJson(
 Map<String, dynamic> _$ComingSoonResultDataToJson(
         ComingSoonResultData instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'backdrop_path': instance.backdropPath,
       'original_title': instance.originalTitle,
       'overview': instance.overview,

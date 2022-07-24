@@ -17,6 +17,8 @@ class ComingsoonResp {
 
 @JsonSerializable()
 class ComingSoonResultData {
+  @JsonKey(name: 'id')
+  int? id;
   @JsonKey(name: 'backdrop_path')
   String? backdropPath;
   @JsonKey(name: 'original_title')
@@ -28,6 +30,7 @@ class ComingSoonResultData {
   String? releaseDate;
 
   ComingSoonResultData({
+    this.id,
     this.backdropPath,
     this.originalTitle,
     this.overview,

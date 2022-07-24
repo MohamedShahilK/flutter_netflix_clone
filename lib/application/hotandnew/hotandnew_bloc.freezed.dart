@@ -19,18 +19,21 @@ mixin _$HotandnewEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getComingSoonApi,
+    required TResult Function(String movieID) getComingSoonVideoApi,
     required TResult Function() getEveryOnesApi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
     TResult Function()? getEveryOnesApi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
     TResult Function()? getEveryOnesApi,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,22 @@ mixin _$HotandnewEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetComingSoonApi value) getComingSoonApi,
+    required TResult Function(_GetComingSoonVideoApi value)
+        getComingSoonVideoApi,
     required TResult Function(_GetEveryOnesApi value) getEveryOnesApi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
     TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
     TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
     required TResult orElse(),
   }) =>
@@ -115,6 +122,7 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getComingSoonApi,
+    required TResult Function(String movieID) getComingSoonVideoApi,
     required TResult Function() getEveryOnesApi,
   }) {
     return getComingSoonApi();
@@ -124,6 +132,7 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
     TResult Function()? getEveryOnesApi,
   }) {
     return getComingSoonApi?.call();
@@ -133,6 +142,7 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
     TResult Function()? getEveryOnesApi,
     required TResult orElse(),
   }) {
@@ -146,6 +156,8 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetComingSoonApi value) getComingSoonApi,
+    required TResult Function(_GetComingSoonVideoApi value)
+        getComingSoonVideoApi,
     required TResult Function(_GetEveryOnesApi value) getEveryOnesApi,
   }) {
     return getComingSoonApi(this);
@@ -155,6 +167,7 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
     TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
   }) {
     return getComingSoonApi?.call(this);
@@ -164,6 +177,7 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
     TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
     required TResult orElse(),
   }) {
@@ -176,6 +190,150 @@ class _$_GetComingSoonApi implements _GetComingSoonApi {
 
 abstract class _GetComingSoonApi implements HotandnewEvent {
   const factory _GetComingSoonApi() = _$_GetComingSoonApi;
+}
+
+/// @nodoc
+abstract class _$$_GetComingSoonVideoApiCopyWith<$Res> {
+  factory _$$_GetComingSoonVideoApiCopyWith(_$_GetComingSoonVideoApi value,
+          $Res Function(_$_GetComingSoonVideoApi) then) =
+      __$$_GetComingSoonVideoApiCopyWithImpl<$Res>;
+  $Res call({String movieID});
+}
+
+/// @nodoc
+class __$$_GetComingSoonVideoApiCopyWithImpl<$Res>
+    extends _$HotandnewEventCopyWithImpl<$Res>
+    implements _$$_GetComingSoonVideoApiCopyWith<$Res> {
+  __$$_GetComingSoonVideoApiCopyWithImpl(_$_GetComingSoonVideoApi _value,
+      $Res Function(_$_GetComingSoonVideoApi) _then)
+      : super(_value, (v) => _then(v as _$_GetComingSoonVideoApi));
+
+  @override
+  _$_GetComingSoonVideoApi get _value =>
+      super._value as _$_GetComingSoonVideoApi;
+
+  @override
+  $Res call({
+    Object? movieID = freezed,
+  }) {
+    return _then(_$_GetComingSoonVideoApi(
+      movieID: movieID == freezed
+          ? _value.movieID
+          : movieID // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetComingSoonVideoApi implements _GetComingSoonVideoApi {
+  const _$_GetComingSoonVideoApi({required this.movieID});
+
+  @override
+  final String movieID;
+
+  @override
+  String toString() {
+    return 'HotandnewEvent.getComingSoonVideoApi(movieID: $movieID)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetComingSoonVideoApi &&
+            const DeepCollectionEquality().equals(other.movieID, movieID));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(movieID));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_GetComingSoonVideoApiCopyWith<_$_GetComingSoonVideoApi> get copyWith =>
+      __$$_GetComingSoonVideoApiCopyWithImpl<_$_GetComingSoonVideoApi>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getComingSoonApi,
+    required TResult Function(String movieID) getComingSoonVideoApi,
+    required TResult Function() getEveryOnesApi,
+  }) {
+    return getComingSoonVideoApi(movieID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
+    TResult Function()? getEveryOnesApi,
+  }) {
+    return getComingSoonVideoApi?.call(movieID);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
+    TResult Function()? getEveryOnesApi,
+    required TResult orElse(),
+  }) {
+    if (getComingSoonVideoApi != null) {
+      return getComingSoonVideoApi(movieID);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetComingSoonApi value) getComingSoonApi,
+    required TResult Function(_GetComingSoonVideoApi value)
+        getComingSoonVideoApi,
+    required TResult Function(_GetEveryOnesApi value) getEveryOnesApi,
+  }) {
+    return getComingSoonVideoApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
+    TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
+  }) {
+    return getComingSoonVideoApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
+    TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
+    required TResult orElse(),
+  }) {
+    if (getComingSoonVideoApi != null) {
+      return getComingSoonVideoApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetComingSoonVideoApi implements HotandnewEvent {
+  const factory _GetComingSoonVideoApi({required final String movieID}) =
+      _$_GetComingSoonVideoApi;
+
+  String get movieID;
+  @JsonKey(ignore: true)
+  _$$_GetComingSoonVideoApiCopyWith<_$_GetComingSoonVideoApi> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -220,6 +378,7 @@ class _$_GetEveryOnesApi implements _GetEveryOnesApi {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getComingSoonApi,
+    required TResult Function(String movieID) getComingSoonVideoApi,
     required TResult Function() getEveryOnesApi,
   }) {
     return getEveryOnesApi();
@@ -229,6 +388,7 @@ class _$_GetEveryOnesApi implements _GetEveryOnesApi {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
     TResult Function()? getEveryOnesApi,
   }) {
     return getEveryOnesApi?.call();
@@ -238,6 +398,7 @@ class _$_GetEveryOnesApi implements _GetEveryOnesApi {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getComingSoonApi,
+    TResult Function(String movieID)? getComingSoonVideoApi,
     TResult Function()? getEveryOnesApi,
     required TResult orElse(),
   }) {
@@ -251,6 +412,8 @@ class _$_GetEveryOnesApi implements _GetEveryOnesApi {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetComingSoonApi value) getComingSoonApi,
+    required TResult Function(_GetComingSoonVideoApi value)
+        getComingSoonVideoApi,
     required TResult Function(_GetEveryOnesApi value) getEveryOnesApi,
   }) {
     return getEveryOnesApi(this);
@@ -260,6 +423,7 @@ class _$_GetEveryOnesApi implements _GetEveryOnesApi {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
     TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
   }) {
     return getEveryOnesApi?.call(this);
@@ -269,6 +433,7 @@ class _$_GetEveryOnesApi implements _GetEveryOnesApi {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetComingSoonApi value)? getComingSoonApi,
+    TResult Function(_GetComingSoonVideoApi value)? getComingSoonVideoApi,
     TResult Function(_GetEveryOnesApi value)? getEveryOnesApi,
     required TResult orElse(),
   }) {
@@ -291,6 +456,8 @@ mixin _$HotAndNewState {
       throw _privateConstructorUsedError;
   List<EveryonesResultData> get everyonesResp =>
       throw _privateConstructorUsedError;
+  List<ComingSoonVideoData> get comingsoonvideokey =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HotAndNewStateCopyWith<HotAndNewState> get copyWith =>
@@ -306,7 +473,8 @@ abstract class $HotAndNewStateCopyWith<$Res> {
       {bool isLoading,
       bool isError,
       List<ComingSoonResultData> comingsoonResp,
-      List<EveryonesResultData> everyonesResp});
+      List<EveryonesResultData> everyonesResp,
+      List<ComingSoonVideoData> comingsoonvideokey});
 }
 
 /// @nodoc
@@ -324,6 +492,7 @@ class _$HotAndNewStateCopyWithImpl<$Res>
     Object? isError = freezed,
     Object? comingsoonResp = freezed,
     Object? everyonesResp = freezed,
+    Object? comingsoonvideokey = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -342,6 +511,10 @@ class _$HotAndNewStateCopyWithImpl<$Res>
           ? _value.everyonesResp
           : everyonesResp // ignore: cast_nullable_to_non_nullable
               as List<EveryonesResultData>,
+      comingsoonvideokey: comingsoonvideokey == freezed
+          ? _value.comingsoonvideokey
+          : comingsoonvideokey // ignore: cast_nullable_to_non_nullable
+              as List<ComingSoonVideoData>,
     ));
   }
 }
@@ -357,7 +530,8 @@ abstract class _$$_HotAndNewStateCopyWith<$Res>
       {bool isLoading,
       bool isError,
       List<ComingSoonResultData> comingsoonResp,
-      List<EveryonesResultData> everyonesResp});
+      List<EveryonesResultData> everyonesResp,
+      List<ComingSoonVideoData> comingsoonvideokey});
 }
 
 /// @nodoc
@@ -377,6 +551,7 @@ class __$$_HotAndNewStateCopyWithImpl<$Res>
     Object? isError = freezed,
     Object? comingsoonResp = freezed,
     Object? everyonesResp = freezed,
+    Object? comingsoonvideokey = freezed,
   }) {
     return _then(_$_HotAndNewState(
       isLoading: isLoading == freezed
@@ -395,6 +570,10 @@ class __$$_HotAndNewStateCopyWithImpl<$Res>
           ? _value._everyonesResp
           : everyonesResp // ignore: cast_nullable_to_non_nullable
               as List<EveryonesResultData>,
+      comingsoonvideokey: comingsoonvideokey == freezed
+          ? _value._comingsoonvideokey
+          : comingsoonvideokey // ignore: cast_nullable_to_non_nullable
+              as List<ComingSoonVideoData>,
     ));
   }
 }
@@ -406,9 +585,11 @@ class _$_HotAndNewState implements _HotAndNewState {
       {required this.isLoading,
       required this.isError,
       required final List<ComingSoonResultData> comingsoonResp,
-      required final List<EveryonesResultData> everyonesResp})
+      required final List<EveryonesResultData> everyonesResp,
+      required final List<ComingSoonVideoData> comingsoonvideokey})
       : _comingsoonResp = comingsoonResp,
-        _everyonesResp = everyonesResp;
+        _everyonesResp = everyonesResp,
+        _comingsoonvideokey = comingsoonvideokey;
 
   @override
   final bool isLoading;
@@ -428,9 +609,16 @@ class _$_HotAndNewState implements _HotAndNewState {
     return EqualUnmodifiableListView(_everyonesResp);
   }
 
+  final List<ComingSoonVideoData> _comingsoonvideokey;
+  @override
+  List<ComingSoonVideoData> get comingsoonvideokey {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_comingsoonvideokey);
+  }
+
   @override
   String toString() {
-    return 'HotAndNewState(isLoading: $isLoading, isError: $isError, comingsoonResp: $comingsoonResp, everyonesResp: $everyonesResp)';
+    return 'HotAndNewState(isLoading: $isLoading, isError: $isError, comingsoonResp: $comingsoonResp, everyonesResp: $everyonesResp, comingsoonvideokey: $comingsoonvideokey)';
   }
 
   @override
@@ -443,7 +631,9 @@ class _$_HotAndNewState implements _HotAndNewState {
             const DeepCollectionEquality()
                 .equals(other._comingsoonResp, _comingsoonResp) &&
             const DeepCollectionEquality()
-                .equals(other._everyonesResp, _everyonesResp));
+                .equals(other._everyonesResp, _everyonesResp) &&
+            const DeepCollectionEquality()
+                .equals(other._comingsoonvideokey, _comingsoonvideokey));
   }
 
   @override
@@ -452,7 +642,8 @@ class _$_HotAndNewState implements _HotAndNewState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isError),
       const DeepCollectionEquality().hash(_comingsoonResp),
-      const DeepCollectionEquality().hash(_everyonesResp));
+      const DeepCollectionEquality().hash(_everyonesResp),
+      const DeepCollectionEquality().hash(_comingsoonvideokey));
 
   @JsonKey(ignore: true)
   @override
@@ -465,7 +656,8 @@ abstract class _HotAndNewState implements HotAndNewState {
           {required final bool isLoading,
           required final bool isError,
           required final List<ComingSoonResultData> comingsoonResp,
-          required final List<EveryonesResultData> everyonesResp}) =
+          required final List<EveryonesResultData> everyonesResp,
+          required final List<ComingSoonVideoData> comingsoonvideokey}) =
       _$_HotAndNewState;
 
   @override
@@ -476,6 +668,8 @@ abstract class _HotAndNewState implements HotAndNewState {
   List<ComingSoonResultData> get comingsoonResp;
   @override
   List<EveryonesResultData> get everyonesResp;
+  @override
+  List<ComingSoonVideoData> get comingsoonvideokey;
   @override
   @JsonKey(ignore: true)
   _$$_HotAndNewStateCopyWith<_$_HotAndNewState> get copyWith =>

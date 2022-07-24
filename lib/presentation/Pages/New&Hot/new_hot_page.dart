@@ -19,7 +19,7 @@ class ScreenNewHotPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: Column(
-            children: const [
+            children:  const [
               CustomTabBar(),
               Expanded(
                 child: TabBarView(
